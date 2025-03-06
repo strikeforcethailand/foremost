@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap@5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- เพิ่ม Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="cssEmployee.css">
+    <link rel="stylesheet" href="cssProduct.css">
+    <link rel="stylesheet" href="cssNext.css">
+    <!-- ฟังก์ชั่นที่อยู่ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+    <title>Sale-Report</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-6 mx-auto">
+            <!-- Header -->
+            <div class="row ">
+                <div class="col-4">
+                <img src="https://www.foremostthailand.com/wp-content/uploads/2022/03/footer-icon_foremost-e1648914092691.png" class="rounded mx-auto d-block" alt="..." style="width: 100px; height: 100px; object-fit: contain;" >
+                </div>
+                <div class="col-8 d-flex align-items-center" style="color:#009688;">
+                <h3>Sale Report</h3>
+                </div>
+            </div>
+
+            
+             <div class="mb-3 step1" id="step1">
+                <!-- Employee -->
+                <div class="mb-3" id="employee">
+                    <h4>Employee</h4>    
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="ID_Emp"  placeholder="รหัสพนักงาน" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="fname" placeholder="ชื่อ-สกุล" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="position" placeholder="ตำแหน่ง" readonly>
+                    </div>
+                </div>
+                <!-- Sale Report -->
+             <div class="mb-3 salereport">
+                <!-- Store  -->
+                <div class="mb-3">
+                    <h4 style="color: #009688;">Store</h4>
+
+                    <input type="radio" class="btn-check" name="store" id="Makro" autocomplete="off" value="Makro" checked>
+                    <label class="btn" for="Makro" style="color: #009688;">Makro</label>
+
+                    <input type="radio" class="btn-check" name="store" id="Lotus" autocomplete="off" value="Lotus's">
+                    <label class="btn" for="Lotus" style="color: #009688;">Lotus's</label>
+
+                    <input type="radio" class="btn-check" name="store" id="BigC" autocomplete="off" value="BigC">
+                    <label class="btn" for="BigC" style="color: #009688;">Big C</label>
+
+                    <input type="radio" class="btn-check" name="store" id="LMT" autocomplete="off" value="LMT">
+                    <label class="btn" for="LMT" style="color: #009688;">LMT</label>
+                </div>
+
+                <!-- สาขา -->
+                 <div class="mb-3 branch">
+                    <select class="form-select" aria-label="branch">
+                        <option selected>กรุณาเลือกสาขา</option>
+                    </select>
+                 </div>
+
+                 <!-- ช่วงอายุ -->
+                 <div class="row mb-3 ageRange">
+                    <h4 style="color: #009688;">ช่วงอายุ</h4>
+                    <div class="row mb-3" style="align-items: center;">
+                        <div class="col-7" style="text-indent :20px;">
+                            8-24 ปี
+                        </div>
+                        <div class="col-3">
+                            <input type="number" class="form-control no-spinner" name="8-24age" style="text-align: center;">
+                        </div>
+                        <div class="col-2" style="text-align: center;">
+                            คน
+                        </div>
+                    </div>
+                    <div class="row mb-3" style="align-items: center;">
+                        <div class="col-7" style="text-indent :20px;">
+                            25-34 ปี
+                        </div>
+                        <div class="col-3">
+                            <input type="number" class="form-control no-spinner" name="25-34age" style="text-align: center;">
+                        </div>
+                        <div class="col-2" style="text-align: center;">
+                            คน
+                        </div>
+                    </div>
+                    <div class="row mb-3" style="align-items: center;">
+                        <div class="col-7" style="text-indent :20px;">
+                            35-44 ปี
+                        </div>
+                        <div class="col-3">
+                            <input type="number" class="form-control no-spinner" name="35-44age" style="text-align: center;">
+                        </div>
+                        <div class="col-2" style="text-align: center;">
+                            คน
+                        </div>
+                    </div>
+                    <div class="row mb-3" style="align-items: center;">
+                        <div class="col-7" style="text-indent :20px;">
+                            45 ปีขึ้นไป
+                        </div>
+                        <div class="col-3">
+                            <input type="number" class="form-control no-spinner" name="45>age" style="text-align: center;">
+                        </div>
+                        <div class="col-2" style="text-align: center;">
+                            คน
+                        </div>
+                    </div>               
+                 </div>
+                 <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+                    <div class="mb-3" style="text-align: end;">
+                      <button class="btn btn-outline-success" type="button" onclick="nextStep()"> ถัดไป <i class="bi bi-caret-right" ></i></button>
+                    </div>
+                  </div> 
+             </div>
+             <!-- close Step1     -->
+            </div>
+
+            <div class="mb-3 step2" style="display: none;" id="step2">
+                <div class="mb-3 sale">
+                    <h4 style="color: #009688;">ผลิตภัณฑ์ที่เชียร์ขายได้</h4>
+                    <hr class="mb-3" style="border-bottom: 3px dashed #009688">
+
+                    <!-- เลือกกลุ่มผลิตภัณฑ์ -->
+                    <div class="mb-3">
+                        <button type="button" class="btn btn-outline-primary" onclick="groupProduct('kids')" >KIDS</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="groupProduct('ms')">MS</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="groupProduct('dky')">DKY</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="groupProduct('tfd')">TFD</button>
+                    </div>
+
+                    <!-- Product -->
+                        <div class="mb-3 card-body slide-card"  id="kids">
+
+                            <div class="mb-3 gold1_plus">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('gold1_plus')">
+                                        โอเมก้า 369 สมาร์ท โกล์ด 1+
+                                    </button>
+                                </p>
+                                <div class="card card-body slide-card" id="gold1_plus">
+                                    <div class="row">
+                                        <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 3</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 12</div>
+                                        <div class="col-2" style="text-align: center;">ยกลัง (24)</div>
+                                        <div class="col-2" style="text-align: center;">ยกลัง (36)</div>
+                                    </div>
+                                    <div class="row" style="align-items: center;">
+                                        <div class="col-4">180ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="gold1_plus_pack3" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="gold1_plus_pack12" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="gold1_plus_crate24" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="gold1_plus_crate36" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 gold4_plus">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('gold4_plus')">โอเมก้า 369 สมาร์ท โกล์ด 4+</button>
+                                </p>
+                                <div class="card card-body slide-card" id="gold4_plus">
+                                    <div class="row">
+                                        <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 3</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 12</div>
+                                        <div class="col-2" style="text-align: center;">ยกลัง (24)</div>
+                                        <div class="col-2" style="text-align: center;">ยกลัง (36)</div>
+                                    </div>
+                                    <div class="row" style="align-items: center;">
+                                        <div class="col-4">180ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="gold4_plus_pack3" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                             <input type="number" class="form-control" name="gold4_plus_pack12" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="gold4_plus_crate24" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="gold4_plus_crate36" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 smart1_plus">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('smart1_plus')">โอเมก้า 369 สมาร์ท 1+</button>
+                                </p>
+                                <div class="card card-body slide-card" id="smart1_plus">
+                                    <div class="row">
+                                        <div class="col-5" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 12</div>
+                                        <div class="col-3" style="text-align: center;">ยกลัง (36)</div>
+                                    </div>
+                                    <div class="row" style="align-items: center;">
+                                        <div class="col-5">180ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="smart1_plus_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="smart1_plus_pack12" style="text-align: center;">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="smart1_plus_crate36" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 smart4_plus">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('smart4_plus')">โอเมก้า 369 สมาร์ท 4+</button>
+                                </p>
+                                <div class="card card-body slide-card" id="smart4_plus">
+                                    <div class="row">
+                                        <div class="col-5" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 12</div>
+                                        <div class="col-3" style="text-align: center;">ยกลัง (36)</div>
+                                    </div>
+                                    <div class="row" style="align-items: center;">
+                                        <div class="col-5">180ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="smart4_plus_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="smart4_plus_pack12" style="text-align: center;">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="smart4_plus_crate36" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 omega369_tasteless">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('369_tasteless')">โอเมก้า 369 รสจืด</button>
+                                </p>
+                                <div class="card card-body slide-card" id="369_tasteless">
+                                    <div class="row">
+                                        <div class="col-2" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 12</div>
+                                        <div class="col-3" style="text-align: center;">ยกลัง (36)</div>
+                                        <div class="col-3" style="text-align: center;">ยกลัง (48)</div>
+                                    </div>
+                                    <!-- 80ml. -->
+                                    <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-2">80 ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_tasteless_80ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="369_tasteless_80ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <!-- <input type="number" class="form-control" name="369_tasteless_80ml_crate36" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="369_tasteless_80ml_crate48" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    <!-- 110ml. -->
+                                    <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-2">110 ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_tasteless_110ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="369_tasteless_110ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <!-- <input type="number" class="form-control" name="369_tasteless_110ml_crate36" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="369_tasteless_110ml_crate48" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    <!-- 180ml. -->
+                                    <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-2">180 ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_tasteless_180ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_tasteless_180ml_pack12" style="text-align: center;">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="369_tasteless_180ml_crate36" style="text-align: center;">
+                                        </div>
+                                        <div class="col-3">
+                                            <!-- <input type="number" class="form-control" name="369_tasteless_180ml_crate48" style="text-align: center;"> -->
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+
+                            <div class="mb-3 omega369_Sweet">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('369_Sweet')">โอเมก้า 369 รสหวาน</button>
+                                </p>
+                                <div class="card card-body slide-card" id="369_Sweet">
+                                    <div class="row">
+                                        <div class="col-2" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 12</div>
+                                        <div class="col-3" style="text-align: center;">ยกลัง (36)</div>
+                                        <div class="col-3" style="text-align: center;">ยกลัง (48)</div>
+                                    </div>
+                                    <!-- 80ml. -->
+                                    <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-2">80 ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_Sweet_80ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="369_Sweet_80ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <!-- <input type="number" class="form-control" name="369_Sweet_80ml_crate36" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="369_Sweet_80ml_crate48" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    <!-- 110ml. -->
+                                    <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-2">110 ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_Sweet_110ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="369_Sweet_110ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <!-- <input type="number" class="form-control" name="369_Sweet_110ml_crate36" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="369_Sweet_110ml_crate48" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    <!-- 180ml. -->
+                                    <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-2">180 ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_Sweet_180ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_Sweet_180ml_pack12" style="text-align: center;">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="369_Sweet_180ml_crate36" style="text-align: center;">
+                                        </div>
+                                        <div class="col-3">
+                                            <!-- <input type="number" class="form-control" name="369_Sweet_180ml_crate48" style="text-align: center;"> -->
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+
+                            <div class="mb omega369_Chocolate">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('369_Chocolate')">โอเมก้า 369 ซ็อกโกแลต</button>
+                                </p>
+                                <div class="card card-body slide-card" id="369_Chocolate">
+                                    <div class="row">
+                                        <div class="col-2" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 12</div>
+                                        <div class="col-3" style="text-align: center;">ยกลัง (36)</div>
+                                        <div class="col-3" style="text-align: center;">ยกลัง (48)</div>
+                                    </div>
+                                    <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-2">80 ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_SweetVanilla_80ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="369_SweetVanilla_80ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <!-- <input type="number" class="form-control" name="369_SweetVanilla_80ml_crate36" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="369_SweetVanilla_80ml_crate48" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-2">110 ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_Chocolate_110ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="369_Chocolate_110ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <!-- <input type="number" class="form-control" name="369_Chocolate_110ml_crate36" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="369_Chocolate_110ml_crate48" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-2">180 ml.</div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_Chocolate_180ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="369_Chocolate_180ml_pack12" style="text-align: center;">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" class="form-control" name="369_Chocolate_180ml_crate36" style="text-align: center;">
+                                        </div>
+                                        <div class="col-3">
+                                            <!-- <input type="number" class="form-control" name="369_Chocolate_180ml_crate48" style="text-align: center;"> -->
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div> 
+                        <!-- close class="mb-3 card-body slide-card" -->
+                        </div>
+
+                        <div class="mb-3 card-body slide-card" id="ms">
+
+                                <div class="mb-3 plain_milk">
+                                    <p style="margin: 5px;">
+                                        <button class="btn btn-outline-success" type="button" onclick="toggleCardTwo('plain_milk', 'plain_milk1000ml')">นมโคแท้ 100% รสจืด</button>
+                                    </p>
+                                    <div class="card card-body slide-card" id="plain_milk">
+                                        <div class="row">
+                                            <div class="col-2" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 6</div>
+                                            <div class="col-3" style="text-align: center;">ยกลัง(36)</div>
+                                            <div class="col-3" style="text-align: center;">ยกลัง(48)</div>
+                                        </div>                                        
+                                        <!-- plain_milk_180ml. -->
+                                        <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-2">180 ml.</div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="plain_milk_180ml_pack4" style="text-align: center;">
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="plain_milk_180ml_pack6" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_180ml_crate36" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_180ml_crate48" style="text-align: center;">
+                                            </div>
+                                        </div>
+                                        <!-- plain_milk_225ml. -->
+                                        <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-2">250 ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="plain_milk_250ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="plain_milk_250ml_pack6" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_250ml_crate36" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <!-- <input type="number" class="form-control" name="plain_milk_250ml_crate48" style="text-align: center;"> -->
+                                            </div>
+                                        </div>                   
+                                    </div>
+
+                                    <div class="card card-body slide-card" id="plain_milk1000ml" style="margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="row">
+                                            <div class="col-2" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-3" style="text-align: center;">เดี่ยว</div>
+                                            <div class="col-3" style="text-align: center;">ยกลัง</div>
+                                        </div>                                        
+                                        <!-- plain_milk_1000ml. -->
+                                        <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-2">1000 ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="plain_milk1000ml_1000ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="plain_milk1000ml_1000ml_pack6" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk1000ml_1000ml_one" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk1000ml_1000ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 plain_milk_100percent">
+                                    <p style="margin: 5px;">
+                                        <button class="btn btn-outline-success" type="button" onclick="toggleCardTwo('plain_milk_100percent', 'plain_plain_milk_100percent1000ml')">นมโคแท้ 100% รสจืด ไขมันต่ำ</button>
+                                    </p>
+                                    <div class="card card-body slide-card" id="plain_milk_100percent">
+                                        <div class="row">
+                                            <div class="col-2" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 6</div>
+                                            <div class="col-3" style="text-align: center;">ยกลัง(36)</div>
+                                            <div class="col-3" style="text-align: center;">ยกลัง(48)</div>
+                                        </div>                                        
+                                        <!-- plain_milk_180ml. -->
+                                        <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-2">180 ml.</div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_180ml_pack4" style="text-align: center;">
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_180ml_pack6" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_180ml_crate36" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_180ml_crate48" style="text-align: center;">
+                                            </div>
+                                        </div>
+                                        <!-- plain_milk_225ml. -->
+                                        <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-2">250 ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="plain_milk_100percent_250ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_250ml_pack6" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_250ml_crate36" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <!-- <input type="number" class="form-control" name="plain_milk_100percent_250ml_crate48" style="text-align: center;"> -->
+                                            </div>
+                                        </div>                   
+                                    </div>
+
+                                    <div class="card card-body slide-card" id="plain_plain_milk_100percent1000ml" style="margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="row">
+                                            <div class="col-2" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-3" style="text-align: center;">เดี่ยว</div>
+                                            <div class="col-3" style="text-align: center;">ยกลัง</div>
+                                        </div>                                        
+                                        <!-- plain_milk_1000ml. -->
+                                        <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-2">1000 ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="plain_milk_100percent1000ml_1000ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="plain_milk_100percent1000ml_pack6" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_100percent1000ml_one" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_100percent1000mll_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 plain_milk_100percent_0fat">
+                                    <p style="margin: 5px;">
+                                        <button class="btn btn-outline-success" type="button" onclick="toggleCardTwo('plain_milk_100percent_0fat', 'plain_milk_100percent_0fat1000ml')">นมโคแท้ 100% รสจืด ไขมันต่ำ</button>
+                                    </p>
+                                    <div class="card card-body slide-card" id="plain_milk_100percent_0fat">
+                                        <div class="row">
+                                            <div class="col-2" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 6</div>
+                                            <div class="col-3" style="text-align: center;">ยกลัง(36)</div>
+                                            <div class="col-3" style="text-align: center;">ยกลัง(48)</div>
+                                        </div>                                        
+                                        <!-- plain_milk_180ml. -->
+                                        <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-2">180 ml.</div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_0fat_180ml_pack4" style="text-align: center;">
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_0fat_180ml_pack6" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_0fat_crate36" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_0fat_crate48" style="text-align: center;">
+                                            </div>
+                                        </div>
+                                        <!-- plain_milk_225ml. -->
+                                        <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-2">250 ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="plain_milk_100percent_0fat_250ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_0fat_250ml_pack6" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_0fat_250ml_crate36" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <!-- <input type="number" class="form-control" name="plain_milk_100percent_0fat_250ml_crate48" style="text-align: center;"> -->
+                                            </div>
+                                        </div>                   
+                                    </div>
+
+                                    <div class="card card-body slide-card" id="plain_milk_100percent_0fat1000ml" style="margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="row">
+                                            <div class="col-2" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-3" style="text-align: center;">เดี่ยว</div>
+                                            <div class="col-3" style="text-align: center;">ยกลัง</div>
+                                        </div>                                        
+                                        <!-- plain_milk_1000ml. -->
+                                        <div class="row" style="align-items: center;margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-2">1000 ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="plain_milk_100percent_0fat1000ml_1000ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="plain_milk_100percent_0fat1000ml_pack6" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_0fat1000ml_one" style="text-align: center;">
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" class="form-control" name="plain_milk_100percent_0fat1000ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 ms_flvour_chocolate>">
+                                    <p style="margin: 5px;">
+                                        <button class="btn btn-outline-success" type="button" onclick="toggleCard('flvour_chocolate')">โฟร์โมสต์ รสซ็อกโกแล</button>
+                                    </p>
+                                    <div class="card card-body slide-card" id="flvour_chocolate">
+                                        <div class="row">
+                                            <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                            <div class="col-2" style="text-align: center;">ยกลัง</div>
+                                        </div>
+                                        <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-4">180ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_chocolate_180ml_pack3" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_chocolate_180ml_pack12" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_chocolate_180ml_pack4" style="text-align: center;">
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_chocolate_180ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-4">225ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_chocolate_225ml_pack3" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_chocolate_225ml_pack12" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_chocolate_225ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_chocolate_225ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 ms_flvour_strawberry>">
+                                    <p style="margin: 5px;">
+                                        <button class="btn btn-outline-success" type="button" onclick="toggleCard('flvour_strawberry')">โฟร์โมสต์ รสสตรอเบอร์รี</button>
+                                    </p>
+                                    <div class="card card-body slide-card" id="flvour_strawberry">
+                                        <div class="row">
+                                            <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                            <div class="col-2" style="text-align: center;">ยกลัง</div>
+                                        </div>
+                                        <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-4">180ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_strawberry_180ml_pack3" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_strawberry_180ml_pack12" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_strawberry_180ml_pack4" style="text-align: center;">
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_strawberry_180ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-4">225ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_strawberry_225ml_pack3" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_strawberry_225ml_pack12" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_strawberry_225ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_strawberry_225ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 ms_flvour_sweetened>">
+                                    <p style="margin: 5px;">
+                                        <button class="btn btn-outline-success" type="button" onclick="toggleCard('flvour_sweetened')">โฟร์โมสต์ รสหวาน</button>
+                                    </p>
+                                    <div class="card card-body slide-card" id="flvour_sweetened">
+                                        <div class="row">
+                                            <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                            <div class="col-2" style="text-align: center;">ยกลัง</div>
+                                        </div>
+                                        <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-4">180ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_sweetened_180ml_pack3" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_sweetened_180ml_pack12" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_sweetened_180ml_pack4" style="text-align: center;">
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_sweetened_180ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-4">225ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_sweetened_225ml_pack3" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_sweetened_225ml_pack12" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_sweetened_225ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_sweetened_225ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 ms_flvour_lowchocolate>">
+                                    <p style="margin: 5px;">
+                                        <button class="btn btn-outline-success" type="button" onclick="toggleCard('flvour_lowchocolate')">โฟร์โมสต์ รสช็อกโกแลต พร่องมันเนย</button>
+                                    </p>
+                                    <div class="card card-body slide-card" id="flvour_lowchocolate">
+                                        <div class="row">
+                                            <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                            <div class="col-2" style="text-align: center;">ยกลัง</div>
+                                        </div>
+                                        <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-4">180ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_lowchocolate_180ml_pack3" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_lowchocolate_180ml_pack12" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_lowchocolate_180ml_pack4" style="text-align: center;">
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_lowchocolate_180ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-4">225ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_lowchocolate_225ml_pack3" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_lowchocolate_225ml_pack12" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_lowchocolate_225ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_lowchocolate_225ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 ms_flvour_banana>">
+                                    <p style="margin: 5px;">
+                                        <button class="btn btn-outline-success" type="button" onclick="toggleCard('flvour_banana')">โฟร์โมสต์ รสกล้วย</button>
+                                    </p>
+                                    <div class="card card-body slide-card" id="flvour_banana">
+                                        <div class="row">
+                                            <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;"></div>
+                                            <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                            <div class="col-2" style="text-align: center;">ยกลัง</div>
+                                        </div>
+                                        <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-4">180ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_banana_180ml_pack3" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_banana_180ml_pack12" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_banana_180ml_pack4" style="text-align: center;">
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_banana_180ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                            <div class="col-4">225ml.</div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_banana_225ml_pack3" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_banana_225ml_pack12" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <!-- <input type="number" class="form-control" name="flvour_banana_225ml_pack4" style="text-align: center;"> -->
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="number" class="form-control" name="flvour_banana_225ml_crate" style="text-align: center;">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>                    
+                          
+
+                            <!-- close class="mb-3 card-body slide-card" id="ms" -->
+                        </div>
+
+                        <div class="mb-3 card-body slide-card" id="dky">
+
+                            <div class="mb-3 dky_strawberry_yaghurt>">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('dky_strawberry')">โฟร์โมสต์ โอเมก้า 369 นมเปรี้ยว รสสตรอเบอร์รี่</button>
+                                </p>
+                                <div class="card card-body slide-card" id="dky_strawberry">
+                                    <div class="row">
+                                        <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;"></div>
+                                        <div class="col-2" style="text-align: center;"></div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                        <div class="col-2" style="text-align: center;">ยกลัง</div>
+                                    </div>
+                                    <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-4">80 ml.</div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_strawberry_180ml_pack3" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_strawberry_180ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_strawberry_180ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_strawberry_180ml_pack4" style="text-align: center;">                                             -->
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-4">170 ml.</div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_strawberry_225ml_pack3" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_strawberry_225ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_strawberry_170ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_strawberry_170ml_crate" style="text-align: center;">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="mb-3 dky_Orange_yaghurt>">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('dky_Orange')">โฟร์โมสต์ โอเมก้า 369 นมเปรี้ยว รสส้ม</button>
+                                </p>
+                                <div class="card card-body slide-card" id="dky_Orange">
+                                    <div class="row">
+                                        <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;"></div>
+                                        <div class="col-2" style="text-align: center;"></div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                        <div class="col-2" style="text-align: center;">ยกลัง</div>
+                                    </div>
+                                    <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-4">80 ml.</div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_Orange_180ml_pack3" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_Orange_180ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_Orange_180ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_Orange_180ml_pack4" style="text-align: center;">                                             -->
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-4">170 ml.</div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_Orange_225ml_pack3" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_Orange_225ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_Orange_170ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_Orange_170ml_crate" style="text-align: center;">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="mb-3 dky_MixedFruit_yaghurt>">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('dky_MixedFruit')">โฟร์โมสต์ โอเมก้า 369 นมเปรี้ยว รสผลไม้รวม</button>
+                                </p>
+                                <div class="card card-body slide-card" id="dky_MixedFruit">
+                                    <div class="row">
+                                        <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;"></div>
+                                        <div class="col-2" style="text-align: center;"></div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                        <div class="col-2" style="text-align: center;">ยกลัง</div>
+                                    </div>
+                                    <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-4">80 ml.</div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_MixedFruit_180ml_pack3" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_MixedFruit_180ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_MixedFruit_180ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_MixedFruit_180ml_pack4" style="text-align: center;">                                             -->
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-4">170 ml.</div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_MixedFruit_225ml_pack3" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_MixedFruit_225ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_MixedFruit_170ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_MixedFruit_170ml_crate" style="text-align: center;">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3 card-body slide-card" id="tfd">
+
+                            <div class="mb-3 tfd_Multigrain_yaghurt>">
+                                <p style="margin: 5px;">
+                                    <button class="btn btn-outline-success" type="button" onclick="toggleCard('tfd_Multigrain')">โฟร์โมสต์ ยูเอชที รสช็อคโกแลตผสมธัญพืชรวม</button>
+                                </p>
+                                <div class="card card-body slide-card" id="tfd_Multigrain">
+                                    <div class="row">
+                                        <div class="col-4" style="align-items: center;">ปริมาณ</div>
+                                        <div class="col-2" style="text-align: center;"></div>
+                                        <div class="col-2" style="text-align: center;"></div>
+                                        <div class="col-2" style="text-align: center;">แพ็ค 4</div>
+                                        <div class="col-2" style="text-align: center;">ยกลัง</div>
+                                    </div>
+
+                                    <div class="row" style="align-items: center; margin-top: 5px;margin-bottom: 5px;">
+                                        <div class="col-4">180 ml.</div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_Multigrain_225ml_pack3" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <!-- <input type="number" class="form-control" name="dky_Multigrain_225ml_pack12" style="text-align: center;"> -->
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_Multigrain_170ml_pack4" style="text-align: center;">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="form-control" name="dky_Multigrain_170ml_crate" style="text-align: center;">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                <!--close class="mb-3 sale" -->
+                </div>
+                <!-- close class="mb-3 step2" -->
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-outline-success" type="button" onclick="prevStep()"><i class="bi bi-caret-left" ></i> ย้อนกลับ</button>
+                    <button class="btn btn-outline-success" type="button">ส่งข้อมูล <i class="bi bi-caret-right"></i></button>
+                </div>
+            
+            </div>
+
+            <!-- <close div class="col-md-6 mx-auto"> -->            
+            </div>
+
+        <!-- close container -->
+    </div>
+
+    <!-- ่javascript -->
+    <script src="jsProduct.js"></script>
+    <script src="jsNext.js"></script>
+</body>
+</html>

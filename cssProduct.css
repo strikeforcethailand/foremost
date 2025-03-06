@@ -1,0 +1,15 @@
+/* เริ่มต้นซ่อน div และเลื่อนออกไปทางซ้าย */
+.slide-card {
+    width: 100%;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    display: none; /* เริ่มต้นซ่อน */
+}
+
+/* เมื่อแสดง div จะค่อย ๆ เลื่อนมาทางขวา */
+.slide-card.show {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}

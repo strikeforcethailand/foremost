@@ -1,0 +1,35 @@
+/* แอนิเมชั่นให้ค่อยๆ แสดงและซ่อน */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.step1, .step2 {
+    transition: opacity 0.5s ease, transform 0.5s ease; /* เพิ่มการเปลี่ยนแปลงที่เนียน */
+    opacity: 1; /* เริ่มต้นที่แสดง */
+    transform: translateX(0); /* เริ่มต้นที่ตำแหน่งปกติ */
+}
+
+.step1.hide, .step2.hide {
+    opacity: 0; /* ซ่อนองค์ประกอบ */
+    transform: translateX(-20px); /* เลื่อนขึ้นเล็กน้อยเพื่อเพิ่มความรู้สึกว่าองค์ประกอบหายไป */
+}
+
+
+
+
+
+
